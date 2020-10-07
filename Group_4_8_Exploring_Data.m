@@ -5,5 +5,5 @@
 clear; %clear workspace
 clc; %clear command window
 
-% Read the data into a table
+%% Read the data into a table
 data = readtable('COVID_Data_2020_10_07.xlsx');
