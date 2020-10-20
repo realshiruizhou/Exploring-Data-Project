@@ -42,5 +42,5 @@ hold off;
 %% Plot the pie chart
 figure(2);
 pie([sum(cases_us) sum(cases_mexico) sum(cases_canada)]);
-title("Percentage of Total NA cases in the last " + n + " days.");
+title("Percentage of Total NA Cases in the Last " + n + " Days.");
 legend("US", "Mexico", "Canada", "Location", "southoutside", "Orientation", "horizontal"); 
