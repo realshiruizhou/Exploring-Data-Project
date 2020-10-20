@@ -28,6 +28,7 @@ for i = 0:n - 1
     temp = temp + 1;
 end
 
+figure(1);
 plot(days, cases_us, "b.-"); %plot the cases vs days for us in blue
 hold on;
 plot(days, cases_mexico, "g.-");
@@ -39,6 +40,7 @@ legend("US", "Mexico", "Canada");
 hold off;
 
 %% Plot the pie chart
+figure(2);
 pie([sum(cases_us) sum(cases_mexico) sum(cases_canada)]);
 title("Percentage of Total NA cases in the last " + n + " days.");
 legend("US", "Mexico", "Canada", "Location", "southoutside", "Orientation", "horizontal"); 
