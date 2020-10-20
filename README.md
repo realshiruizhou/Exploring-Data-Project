@@ -8,3 +8,4 @@ Click on the file named "Group_4_8_Exploring_Data.m". There should be a pencil i
 Shirui Zhou: 
 created a plot of the amount of cases for the last n amount of days 10/8
 expanded plot to include NA countries and added pie chart 10/15
+added the final graph 10/20
