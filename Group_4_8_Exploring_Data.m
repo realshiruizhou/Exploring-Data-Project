@@ -19,12 +19,14 @@ days = (n:-1:1); %days array
 cases_us = (1:1:n); %cases array for us
 cases_mexico = (1:1:n); %cases array for mexico
 cases_canada = (1:1:n); %cases array for canada
+deaths_us = (1:1:n);
 
 temp = 1; %keep track of place in cases
 for i = 0:n - 1
     cases_us(temp) = data{i + index_us, 5};
     cases_mexico(temp) = data{i + index_mexico, 5};
     cases_canada(temp) = data{i + index_canada, 5};
+    deaths_us(temp) = data{i + index_us, 6};
     temp = temp + 1;
 end
 
@@ -44,3 +46,15 @@ figure(2);
 pie([sum(cases_us) sum(cases_mexico) sum(cases_canada)]);
 title("Percentage of Total NA Cases in the Last " + n + " Days.");
 legend("US", "Mexico", "Canada", "Location", "southoutside", "Orientation", "horizontal"); 
+
+%% Plot cases vs deaths
+figure(3);
+plot(cases_us, deaths_us, ".");
+hold on;
+[BestFit, gof] = fit(cases_us.', deaths_us.', "poly1");
+plot(BestFit);
+title("US Deaths vs Cases for the last " + n + " Days");
+ylabel("# of deaths");
+xlabel("# of cases (in tens of thousands)");
+disp("deaths = " + BestFit.p1 + " * cases + " + BestFit.p2);
+disp("R^2: " + gof.rsquare);
